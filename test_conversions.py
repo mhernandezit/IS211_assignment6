@@ -22,31 +22,31 @@ class TestConversions(unittest.TestCase):
             result = conversions.convertCelsiusToKelvin(test["celsius"])
             self.assertEqual(test["kelvin"], result)
 
-    def testcelsiusToFahrenheit(self):
+    def testCelsiusToFahrenheit(self):
         """ Test from Celsius to Fahrenheit """
         for test in self.testCases:
             result = conversions.convertCelsiusToFahrenheit(test["celsius"])
             self.assertEqual(test["fahrenheit"], result)
 
-    def testfahrenheitToCelsius(self):
+    def testFahrenheitToCelsius(self):
         """ Test from Celsius to Kelvin """
         for test in self.testCases:
             result = conversions.convertFahrenheitToCelsius(test["fahrenheit"])
             self.assertEqual(test["celsius"], result)
 
-    def testfahrenheitToKelvin(self):
+    def testFahrenheitToKelvin(self):
         """ Test from Celsius to Kelvin """
         for test in self.testCases:
             result = conversions.convertFahrenheitToKelvin(test["fahrenheit"])
             self.assertEqual(test["kelvin"], result)
 
-    def testkelvinToFahrenheit(self):
+    def testKelvinToFahrenheit(self):
         """ Test from Celsius to Kelvin """
         for test in self.testCases:
             result = conversions.convertKelvinToFahrenheit(test["kelvin"])
             self.assertEqual(test["fahrenheit"], result)
 
-    def testkelvinToCelsius(self):
+    def testKelvinToCelsius(self):
         """ Test from Celsius to Kelvin """
         for test in self.testCases:
             result = conversions.convertKelvinToCelsius(test["kelvin"])
@@ -67,12 +67,12 @@ class TestConversionRefactored(unittest.TestCase):
             fahrenheitToKelvin = round((float(test) + 459.67) * 5 / 9, 2)
             kelvinToFahrenheit = round(float(test) * 9 / 5 - 459.67, 2)
             kelvinToCelsius = round(float(test) - 273.15, 2)
-            yardsToMiles = float(test) / 1760
-            yardsToMeters = float(test) / 1.094
-            metersToYards = float(test) * 1.094
-            metersToMiles = float(test) / 1609.344
-            milesToYards = float(test) * 1760
-            milesToMeters = float(test) * 1609.344
+            yardsToMiles = round(float(test) / 1760, 2)
+            yardsToMeters = round(float(test) / 1.094, 2)
+            metersToYards = round(float(test) * 1.094, 2)
+            metersToMiles = round(float(test) / 1609.344, 2)
+            milesToYards = round(float(test) * 1760, 2)
+            milesToMeters = round(float(test) * 1609.344, 2)
 
             self.assertEqual(conversions_refactored.convert(
                 'celsius', 'kelvin', test), celsiusToKelvin)
